@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.rickandmortyapp.databinding.ItemCharacterBinding
 import com.example.rickandmortyapp.models.models.character.Result
 
-class CharacterAdapter(private val characterList: Array<Result>
+class CharacterAdapter(private val characterList: List<Result>
 ): RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>(){
 
     class CharacterViewHolder(val binding: ItemCharacterBinding): RecyclerView.ViewHolder(binding.root)
