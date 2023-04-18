@@ -5,12 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rickandmortyapp.models.models.character.CharacterList
 import com.example.rickandmortyapp.models.models.character.Result
 import com.example.rickandmortyapp.models.models.location.LocationList
 import com.example.rickandmortyapp.repository.Repository
 import com.example.rickandmortyapp.repository.RepositoryImpl
-import com.example.rickandmortyapp.utils.State
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback

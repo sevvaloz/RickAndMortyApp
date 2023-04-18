@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.models.models.location.Result
 import com.example.rickandmortyapp.adapter.CharacterAdapter
 import com.example.rickandmortyapp.adapter.LocationAdapter
 import com.example.rickandmortyapp.databinding.ActivityMainBinding
+import com.example.rickandmortyapp.databinding.ItemCharacterBinding
 import com.example.rickandmortyapp.repository.RepositoryImpl
 import com.example.rickandmortyapp.utils.RowClickListener
 import com.example.rickandmortyapp.utils.findCharacterId
@@ -34,15 +36,18 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         //fun calls
-        dataBinding()
+        viewBinding()
         init()
         sendRequest()
         observeViewModel()
+
+
     }
 
-    fun dataBinding(){
+    fun viewBinding(){
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
     private fun init(){
         viewModel.setRepo(RepositoryImpl())

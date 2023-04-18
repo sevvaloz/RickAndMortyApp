@@ -80,8 +80,6 @@ w
 G.idea/sonarlint/issuestore/7/2/726e8d5db2393776b992f31d1d2d2bfa6c4b4262,b/9/b909415f54d6b0ac15d51a9f4fe53a705ad4f86f
 w
 G.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302,e/d/ed67eb178d523a4b3f117dcbe0eda5196367ceec
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 o
 ?app/src/main/java/com/example/rickandmortyapp/utils/Constant.kt,6/e/6ec0e70bb8b9820ce589599c3a66a06d5cf6bcaf
 ~

@@ -28,8 +28,6 @@ Oapp/src/androidTest/java/com/example/rickandmortyapp/ExampleInstrumentedTest.kt
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 @
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 ~
 Napp/src/main/java/com/example/rickandmortyapp/models/models/character/İnfo.kt,6/e/6e92a22d4b2674acb3a875537c99a7ee6f9ce629
 w
