@@ -1,6 +1,6 @@
 package com.example.rickandmortyapp.models.models.location
 
-data class Result(
+data class Location(
     val id: Int,
     val name: String,
     val type: String,

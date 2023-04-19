@@ -1,15 +1,14 @@
 package com.example.rickandmortyapp.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.databinding.ItemLocationBinding
-import com.example.rickandmortyapp.models.models.location.Result
-import com.example.rickandmortyapp.utils.RowClickListener
+import com.example.rickandmortyapp.models.models.location.Location
+import com.example.rickandmortyapp.utils.LocationRowClickListener
 
-class LocationAdapter(private val locationList: Array<Result>,
-                      private val onLocationClickListener: RowClickListener<Result>
+class LocationAdapter(private val locationList: Array<Location>,
+                      private val onLocationClickListener: LocationRowClickListener<Location>
                       ): RecyclerView.Adapter<LocationAdapter.LocationViewHolder>() {
 
     class LocationViewHolder(val binding: ItemLocationBinding): RecyclerView.ViewHolder(binding.root)
@@ -26,7 +25,7 @@ class LocationAdapter(private val locationList: Array<Result>,
             locationButton.text = location.name
         }
         holder.binding.locationButton.setOnClickListener {
-            onLocationClickListener.onRowClick(position,locationList[position])
+            onLocationClickListener.onLocationRowClick(position,locationList[position])
         }
     }
 }

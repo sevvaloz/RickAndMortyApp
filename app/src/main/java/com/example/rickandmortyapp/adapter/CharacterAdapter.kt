@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.ItemCharacterBinding
-import com.example.rickandmortyapp.models.models.character.Result
+import com.example.rickandmortyapp.models.models.character.Character
+import com.example.rickandmortyapp.utils.CharacterRowClickListener
 
-class CharacterAdapter(private val characterList: List<Result>
+class CharacterAdapter(
+    private val characterList: List<Character>,
+    private val characterListener: CharacterRowClickListener<Character>
 ): RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>(){
 
     class CharacterViewHolder(val binding: ItemCharacterBinding): RecyclerView.ViewHolder(binding.root)
@@ -26,18 +29,14 @@ class CharacterAdapter(private val characterList: List<Result>
             val character = characterList[position]
             characterName.text = character.name
             Glide.with(holder.binding.root).load(character.image).into(characterImage)
-
-            if(character.gender == "Male"){
-                Glide.with(holder.binding.root).load(R.drawable.male).into(characterGenderImage)
+            when(character.gender){
+                "Male" -> Glide.with(holder.binding.root).load(R.drawable.male).into(characterGenderImage)
+                "Female" -> Glide.with(holder.binding.root).load(R.drawable.female).into(characterGenderImage)
+                "Genderless" -> Glide.with(holder.binding.root).load(R.drawable.genderless).into(characterGenderImage)
+                "unknown" -> Glide.with(holder.binding.root).load(R.drawable.unknown).into(characterGenderImage)
             }
-            if(character.gender == "Female"){
-                Glide.with(holder.binding.root).load(R.drawable.female).into(characterGenderImage)
-            }
-            if(character.gender == "Genderless"){
-                Glide.with(holder.binding.root).load(R.drawable.genderless).into(characterGenderImage)
-            }
-            if(character.gender == "unknown"){
-                Glide.with(holder.binding.root).load(R.drawable.unknown).into(characterGenderImage)
+            cv.setOnClickListener {
+                characterListener.onCharacterRowClick(position, character)
             }
         }
     }
