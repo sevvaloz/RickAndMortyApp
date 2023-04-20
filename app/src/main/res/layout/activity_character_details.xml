@@ -1,40 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CharacterDetailsActivity">
+    android:layout_height="match_parent">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        tools:context=".CharacterDetailsActivity"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="275dp"
+            android:layout_height="275dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/rick_morty_rick_and_morty_stunned_qasem_roqaya">
+        </ImageView>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:context=".AddFilmActivity"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp">
 
             <TextView
-                android:id="@+id/charName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="CHARACTER NAME"
-                android:textSize="20sp"
-                android:layout_margin="10dp"
-                android:gravity="bottom">
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Status: "
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/avenir_font">
             </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alive"
+                android:textSize="22sp"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp">
 
-            <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </ScrollView>
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Specy: "
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Human"
+                android:textSize="22sp"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp">
 
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Gender: "
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textSize="22sp"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Origin: "
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Earth (C-137)"
+                android:textSize="22sp"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Location: "
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Earth (C-137)"
+                android:textSize="22sp"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Episodes: "
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1,2,3,4,5,6,22,51"
+                android:textSize="22sp"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Created at (in API): "
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5 May 2017, 09:48:44"
+                android:textSize="22sp"
+                android:fontFamily="@font/avenir_font">
+            </TextView>
         </LinearLayout>
 
-    </ScrollView>
 
-</LinearLayout>
+
+    </LinearLayout>
+
+
+
+</ScrollView>

@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(R.style.Theme_RickAndMortyApp)
+        //setTheme(R.style.Theme_RickAndMortyApp)
         setContentView(R.layout.activity_main)
 
         //hide application action bar
@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onCharacterRowClick(pos: Int, item: Character) {
                     Log.d("CharacterID", item.id.toString())
                     //viewModel.getSingleCharacter(item.id)
-                    startActivity(Intent(this@MainActivity, CharacterDetailsActivity::class.java).putExtra("CharacterID", item))
+                    startActivity(Intent(this@MainActivity, CharacterDetailsActivity::class.java)).toString()
                 }
             })
 
