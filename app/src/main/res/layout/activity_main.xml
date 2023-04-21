@@ -25,13 +25,27 @@
     </androidx.recyclerview.widget.RecyclerView>
 
 
+    <TextView
+        android:id="@+id/infoTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose any location.."
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/avenir_font"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:visibility="visible">
+    </TextView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/characterRecyclerview"
         android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        android:visibility="gone">
     </androidx.recyclerview.widget.RecyclerView>
 
 

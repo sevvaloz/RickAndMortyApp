@@ -13,7 +13,7 @@ class SplashActivity : AppCompatActivity() {
         Handler().postDelayed(Runnable {
             startActivity(Intent(this@SplashActivity, MainActivity::class.java))
             finish()
-        }, 3000)
+        }, 2500)
 
         val prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
         val isFirstStart = prefs.getBoolean("isFirstStart", true)

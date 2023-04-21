@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/rick_morty_rick_and_morty_stunned_qasem_roqaya" />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/welcome_message"

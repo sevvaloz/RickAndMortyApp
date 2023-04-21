@@ -3,6 +3,7 @@ package com.example.rickandmortyapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     private var locationAdapter: LocationAdapter? = null
     private var characterAdapter: CharacterAdapter? = null
     private val viewModel: MainViewModel by viewModels()
-    private val jsonObject: JSONObject? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +41,8 @@ class MainActivity : AppCompatActivity() {
         viewBinding()
         init()
         sendRequest()
-        observeViewModel()
+        observeLocationData()
+        observeCharacterData()
     }
 
     fun viewBinding(){
@@ -57,7 +58,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.getLocations()
     }
 
-    private fun observeViewModel(){
+
+    private fun observeLocationData(){
         viewModel.locationsData.observe(this){ locList ->
             loc_recyclerview = binding.locationRecyclerview
             locationAdapter = LocationAdapter(locList.results.toTypedArray(), object : LocationRowClickListener<Location>{
@@ -66,12 +68,15 @@ class MainActivity : AppCompatActivity() {
                     Log.d("LocationName", item.name)
                     val characterIdList = item.residents.map { url -> url.findCharacterId() }
                     viewModel.getCharacters(characterIdList)
+                    binding.infoTxt?.visibility = View.GONE
+                    binding.characterRecyclerview.visibility = View.VISIBLE
                 }
             } )
             loc_recyclerview.adapter = locationAdapter
             loc_recyclerview.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL,false)
         }
-
+    }
+    private fun observeCharacterData(){
         viewModel.charactersData.observe(this){ charList ->
             char_recyclerview = binding.characterRecyclerview
             characterAdapter = CharacterAdapter(charList, object : CharacterRowClickListener<Character>{
