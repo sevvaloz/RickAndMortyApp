@@ -3,6 +3,7 @@ package com.example.rickandmortyapp.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.rickandmortyapp.R
 import com.example.rickandmortyapp.databinding.ItemLocationBinding
 import com.example.rickandmortyapp.models.models.location.Location
 import com.example.rickandmortyapp.utils.LocationRowClickListener
@@ -25,10 +26,11 @@ class LocationAdapter(private val locationList: Array<Location>,
             locationButton.text = location.name
             locationButton.setOnClickListener {
                 onLocationClickListener.onLocationRowClick(position, location)
+                onLocationClickListener
             }
         }
-        /*holder.binding.locationButton.setOnClickListener {
-            onLocationClickListener.onLocationRowClick(position, locationList[position])
-        }*/
     }
+
+
+
 }

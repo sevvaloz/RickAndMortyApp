@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.rickandmortyapp.databinding.ActivityCharacterDetailsBinding
 import com.example.rickandmortyapp.utils.findCharacterEpisodeNumber
+import com.example.rickandmortyapp.utils.findCharacterTime
+import com.example.rickandmortyapp.utils.findCreatedDate
 
 class CharacterDetailsActivity : AppCompatActivity() {
 
@@ -38,18 +40,25 @@ class CharacterDetailsActivity : AppCompatActivity() {
 
     private fun setDetails() {
         binding.name.text = intent.getStringExtra("name")
-        binding.created.text = intent.getStringExtra("created")
         binding.gender.text  = intent.getStringExtra("gender")
         binding.status.text  = intent.getStringExtra("status")
         binding.specy.text  = intent.getStringExtra("species")
         binding.location.text  = intent.getStringExtra("locationName")
         binding.origin.text  = intent.getStringExtra("originName")
         Glide.with(this).load(intent.getStringExtra("image")).into(binding.image)
+
+        //episode
         val episodeUrls = intent.getStringArrayListExtra("episodes")
         episodeUrls?.forEach { episodeUrl ->
             episodeNumbers.add(episodeUrl.findCharacterEpisodeNumber())
         }
         binding.episodes.text = episodeNumbers.joinToString()
+
+        //created
+        val created = intent.getStringExtra("created")
+        val cd = created?.findCreatedDate()
+        val ct = created?.findCharacterTime()
+        binding.created.text = (cd + ", " + ct)
     }
 }
 

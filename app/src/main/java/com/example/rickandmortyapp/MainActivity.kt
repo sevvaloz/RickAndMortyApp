@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,11 +46,11 @@ class MainActivity : AppCompatActivity() {
         observeCharacterData()
     }
 
-    fun viewBinding(){
+    private fun viewBinding(){
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
     }
+
     private fun init(){
         viewModel.setRepo(RepositoryImpl())
     }
@@ -58,18 +59,20 @@ class MainActivity : AppCompatActivity() {
         viewModel.getLocations()
     }
 
+    private fun changeUI(){
+        binding.infoTxt?.visibility = View.GONE
+        binding.characterRecyclerview.visibility = View.VISIBLE
+    }
 
     private fun observeLocationData(){
         viewModel.locationsData.observe(this){ locList ->
             loc_recyclerview = binding.locationRecyclerview
             locationAdapter = LocationAdapter(locList.results.toTypedArray(), object : LocationRowClickListener<Location>{
-
                 override fun onLocationRowClick(pos: Int, item: Location) {
                     Log.d("LocationName", item.name)
                     val characterIdList = item.residents.map { url -> url.findCharacterId() }
                     viewModel.getCharacters(characterIdList)
-                    binding.infoTxt?.visibility = View.GONE
-                    binding.characterRecyclerview.visibility = View.VISIBLE
+                    changeUI()
                 }
             } )
             loc_recyclerview.adapter = locationAdapter
@@ -81,22 +84,26 @@ class MainActivity : AppCompatActivity() {
             char_recyclerview = binding.characterRecyclerview
             characterAdapter = CharacterAdapter(charList, object : CharacterRowClickListener<Character>{
                 override fun onCharacterRowClick(pos: Int, item: Character) {
-                    val _intent = Intent(this@MainActivity, CharacterDetailsActivity::class.java)
-                    _intent.putExtra("name", item.name)
-                    _intent.putExtra("created", item.created)
-                    _intent.putExtra("gender", item.gender)
-                    _intent.putExtra("status", item.status)
-                    _intent.putExtra("species", item.species)
-                    _intent.putExtra("locationName", item.location.name)
-                    _intent.putExtra("originName", item.origin.name)
-                    _intent.putExtra("image", item.image)
-                    _intent.putStringArrayListExtra("episodes", item.episode)
-                    startActivity(_intent)
+                    sendCharacterData(item)
                 }
             })
             char_recyclerview.adapter = characterAdapter
             char_recyclerview.layoutManager = LinearLayoutManager(this@MainActivity)
         }
+    }
+
+    private fun sendCharacterData(item: Character){
+        val _intent = Intent(this@MainActivity, CharacterDetailsActivity::class.java)
+        _intent.putExtra("name", item.name)
+        _intent.putExtra("created", item.created)
+        _intent.putExtra("gender", item.gender)
+        _intent.putExtra("status", item.status)
+        _intent.putExtra("species", item.species)
+        _intent.putExtra("locationName", item.location.name)
+        _intent.putExtra("originName", item.origin.name)
+        _intent.putExtra("image", item.image)
+        _intent.putStringArrayListExtra("episodes", item.episode)
+        startActivity(_intent)
     }
 
 
