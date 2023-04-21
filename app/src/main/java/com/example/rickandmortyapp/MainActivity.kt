@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setTheme(R.style.Theme_RickAndMortyApp)
         setContentView(R.layout.activity_main)
 
         //hide application action bar
@@ -43,8 +42,6 @@ class MainActivity : AppCompatActivity() {
         init()
         sendRequest()
         observeViewModel()
-
-
     }
 
     fun viewBinding(){
@@ -61,9 +58,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel(){
-        viewModel.locationsData.observe(this){
+        viewModel.locationsData.observe(this){ locList ->
             loc_recyclerview = binding.locationRecyclerview
-            locationAdapter = LocationAdapter(it.results.toTypedArray(), object : LocationRowClickListener<Location>{
+            locationAdapter = LocationAdapter(locList.results.toTypedArray(), object : LocationRowClickListener<Location>{
 
                 override fun onLocationRowClick(pos: Int, item: Location) {
                     Log.d("LocationName", item.name)
@@ -73,25 +70,28 @@ class MainActivity : AppCompatActivity() {
             } )
             loc_recyclerview.adapter = locationAdapter
             loc_recyclerview.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL,false)
-
         }
 
         viewModel.charactersData.observe(this){ charList ->
             char_recyclerview = binding.characterRecyclerview
             characterAdapter = CharacterAdapter(charList, object : CharacterRowClickListener<Character>{
                 override fun onCharacterRowClick(pos: Int, item: Character) {
-                    Log.d("CharacterID", item.id.toString())
-                    //viewModel.getSingleCharacter(item.id)
-                    startActivity(Intent(this@MainActivity, CharacterDetailsActivity::class.java)).toString()
+                    val _intent = Intent(this@MainActivity, CharacterDetailsActivity::class.java)
+                    _intent.putExtra("name", item.name)
+                    _intent.putExtra("created", item.created)
+                    _intent.putExtra("gender", item.gender)
+                    _intent.putExtra("status", item.status)
+                    _intent.putExtra("species", item.species)
+                    _intent.putExtra("locationName", item.location.name)
+                    _intent.putExtra("originName", item.origin.name)
+                    _intent.putExtra("image", item.image)
+                    _intent.putStringArrayListExtra("episodes", item.episode)
+                    startActivity(_intent)
                 }
             })
-
             char_recyclerview.adapter = characterAdapter
             char_recyclerview.layoutManager = LinearLayoutManager(this@MainActivity)
         }
-
-
-
     }
 
 

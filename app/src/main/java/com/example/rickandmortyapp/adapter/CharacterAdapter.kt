@@ -12,7 +12,7 @@ import com.example.rickandmortyapp.utils.CharacterRowClickListener
 
 class CharacterAdapter(
     private val characterList: List<Character>,
-    private val characterListener: CharacterRowClickListener<Character>
+    private val onCharacterListener: CharacterRowClickListener<Character>
 ): RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>(){
 
     class CharacterViewHolder(val binding: ItemCharacterBinding): RecyclerView.ViewHolder(binding.root)
@@ -36,7 +36,7 @@ class CharacterAdapter(
                 "unknown" -> Glide.with(holder.binding.root).load(R.drawable.unknown).into(characterGenderImage)
             }
             cv.setOnClickListener {
-                characterListener.onCharacterRowClick(position, character)
+                onCharacterListener.onCharacterRowClick(position, character)
             }
         }
     }

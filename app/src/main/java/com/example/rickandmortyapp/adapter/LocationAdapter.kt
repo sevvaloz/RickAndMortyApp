@@ -23,9 +23,12 @@ class LocationAdapter(private val locationList: Array<Location>,
         holder.binding.apply {
             val location = locationList[position]
             locationButton.text = location.name
+            locationButton.setOnClickListener {
+                onLocationClickListener.onLocationRowClick(position, location)
+            }
         }
-        holder.binding.locationButton.setOnClickListener {
-            onLocationClickListener.onLocationRowClick(position,locationList[position])
-        }
+        /*holder.binding.locationButton.setOnClickListener {
+            onLocationClickListener.onLocationRowClick(position, locationList[position])
+        }*/
     }
 }
