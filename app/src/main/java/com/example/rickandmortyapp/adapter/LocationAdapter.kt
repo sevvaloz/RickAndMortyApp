@@ -11,7 +11,6 @@ import com.example.rickandmortyapp.utils.LocationRowClickListener
 
 class LocationAdapter(private val locationList: Array<Location>,
                       private val onLocationClickListener: LocationRowClickListener<Location>,
-                      private val recyclerView: RecyclerView
                       ): RecyclerView.Adapter<LocationAdapter.LocationViewHolder>() {
 
     private var clickedPosition = -1

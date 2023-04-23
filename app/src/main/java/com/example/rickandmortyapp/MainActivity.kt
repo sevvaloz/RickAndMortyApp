@@ -69,12 +69,12 @@ class MainActivity : AppCompatActivity() {
             loc_recyclerview = binding.locationRecyclerview
             locationAdapter = LocationAdapter(locList.results.toTypedArray(), object : LocationRowClickListener<Location>{
                 override fun onLocationRowClick(pos: Int, item: Location) {
-                    Log.d("LocationName", item.name)
+                    //Log.d("LocationName", item.name)
                     val characterIdList = item.residents.map { url -> url.findCharacterId() }
                     viewModel.getCharacters(characterIdList)
                     changeUI()
                 }
-            }, binding.locationRecyclerview )
+            })
             loc_recyclerview.adapter = locationAdapter
             loc_recyclerview.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL,false)
         }
