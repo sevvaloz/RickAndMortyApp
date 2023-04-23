@@ -29,9 +29,9 @@ class LocationAdapter(private val locationList: Array<Location>,
         holder.binding.locationButton.text = location.name
         holder.binding.locationButton.setBackgroundColor(
             if(position == clickedPosition){
-                holder.itemView.resources.getColor(R.color.green)
+                holder.itemView.resources.getColor(R.color.gray)
             } else{
-                holder.itemView.resources.getColor(R.color.black)
+                holder.itemView.resources.getColor(R.color.yellow)
             }
         )
 

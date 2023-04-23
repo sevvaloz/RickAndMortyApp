@@ -5,11 +5,11 @@
 
     android:id="@+id/locationButton"
     android:layout_width="wrap_content"
-    android:layout_height="55dp"
+    android:layout_height="60dp"
     android:text="earth"
     android:fontFamily="@font/avenir_font"
     android:textStyle="bold"
-    android:backgroundTint="#000000"
+    android:backgroundTint="@color/yellow"
     android:layout_margin="5dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
