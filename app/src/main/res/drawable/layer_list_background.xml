@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
         android:drawable="@color/white">
     </item>
-
     <item
-        android:drawable="@drawable/rick_morty_rick_and_morty_stunned_qasem_roqaya"
+        android:drawable="@drawable/splashlogo"
         android:gravity="center">
     </item>
-
 </layer-list>
 
 
