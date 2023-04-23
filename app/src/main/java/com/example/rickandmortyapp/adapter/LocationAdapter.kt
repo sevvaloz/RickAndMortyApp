@@ -14,7 +14,9 @@ class LocationAdapter(private val locationList: Array<Location>,
                       private val recyclerView: RecyclerView
                       ): RecyclerView.Adapter<LocationAdapter.LocationViewHolder>() {
 
-    class LocationViewHolder(val binding: ItemLocationBinding): RecyclerView.ViewHolder(binding.root)
+    private var clickedPosition = -1
+
+    class LocationViewHolder(val binding: ItemLocationBinding): ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocationViewHolder {
         return LocationViewHolder(ItemLocationBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -25,23 +27,23 @@ class LocationAdapter(private val locationList: Array<Location>,
     override fun onBindViewHolder(holder: LocationViewHolder, position: Int) {
         val location = locationList[position]
         holder.binding.locationButton.text = location.name
-        holder.binding.locationButton.setOnClickListener {
-
-            holder.binding.locationButton.setBackgroundColor(holder.itemView.resources.getColor(R.color.green))
-            for (i in locationList.indices) {
-                if (i != position) {
-                    val otherHolder = recyclerView.findViewHolderForAdapterPosition(i) as LocationViewHolder?
-                    otherHolder?.itemView?.resources?.getColor(R.color.black)?.let { it1 -> otherHolder.binding.locationButton.setBackgroundColor(it1) }
-                }
+        holder.binding.locationButton.setBackgroundColor(
+            if(position == clickedPosition){
+                holder.itemView.resources.getColor(R.color.green)
+            } else{
+                holder.itemView.resources.getColor(R.color.black)
             }
+        )
 
-            onLocationClickListener.onLocationRowClick(position, location)
+        holder.binding.locationButton.setOnClickListener {
+            if(clickedPosition != position){
+                notifyItemChanged(clickedPosition)
+                clickedPosition = position
+                notifyItemChanged(clickedPosition)
+                onLocationClickListener.onLocationRowClick(position, location)
+            }
         }
-
-
     }
-
-
 
 
 }
