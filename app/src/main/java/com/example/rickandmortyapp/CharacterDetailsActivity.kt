@@ -12,7 +12,7 @@ import com.example.rickandmortyapp.utils.findCreatedDate
 class CharacterDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCharacterDetailsBinding
-    val episodeNumbers = ArrayList<String>()
+    private val episodeNumbers = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class CharacterDetailsActivity : AppCompatActivity() {
         //fun calls
         viewBinding()
         doBack()
-        setDetails()
+        getCharacterData()
     }
 
     private fun viewBinding() {
@@ -38,7 +38,7 @@ class CharacterDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun setDetails() {
+    private fun getCharacterData() {
         binding.name.text = intent.getStringExtra("name")
         binding.gender.text  = intent.getStringExtra("gender")
         binding.status.text  = intent.getStringExtra("status")

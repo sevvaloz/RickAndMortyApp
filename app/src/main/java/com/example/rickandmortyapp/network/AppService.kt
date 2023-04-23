@@ -7,7 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface AppService {
-
     @GET("location")
     fun getLocations(): Call<LocationList>
 

@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                     viewModel.getCharacters(characterIdList)
                     changeUI()
                 }
-            } )
+            }, binding.locationRecyclerview )
             loc_recyclerview.adapter = locationAdapter
             loc_recyclerview.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL,false)
         }

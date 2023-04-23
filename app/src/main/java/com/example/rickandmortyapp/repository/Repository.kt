@@ -8,6 +8,4 @@ interface Repository {
     fun getLocations(): Call<LocationList>
 
     fun getCharacters(ids: List<Int>): Call<List<Character>>
-
-    fun getSingleCharacter(id: Int): Call<Character>
 }

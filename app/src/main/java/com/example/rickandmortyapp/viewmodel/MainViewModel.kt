@@ -22,9 +22,6 @@ class MainViewModel(): ViewModel() {
     private val characters = MutableLiveData<List<Character>>()
     val charactersData: LiveData<List<Character>> get() = characters
 
-    /*private val singleCharacter = MutableLiveData<Character>()
-    val singleCharacterData: LiveData<Character> get() = singleCharacter*/
-
     private lateinit var repository: Repository
 
     fun setRepo(repositoryImlp: RepositoryImpl){
@@ -78,32 +75,6 @@ class MainViewModel(): ViewModel() {
             })
         }
     }
-
-/*    fun getSingleCharacter(_id: Int){
-        viewModelScope.launch {
-            repository.getSingleCharacter(id = _id).enqueue(object : Callback<Character?> {
-                override fun onResponse(call: Call<Character?>, response: Response<Character?>) {
-                    if(response.isSuccessful) {
-                        response.body()?.let {
-                            Log.d("TAG", "ServiceSuccess3")
-                            //singleCharacter.postValue(it)
-                            singleCharacter.value = response.body()
-                        }?: kotlin.run {
-                            Log.d("TAG", "EmptyBody3")
-                        }
-                    } else {
-                        Log.d("TAG", "ServiceFailed. ResponseMessage3: ${response.message()}")
-                        Log.d("ServiceFailedCode", response.code().toString())
-                    }
-                }
-
-                override fun onFailure(call: Call<Character?>, t: Throwable) {
-                    Log.d("TAG", "ServiceFailed. Message3: ${t.message}")
-                }
-            })
-        }
-    }*/
-
 
 }
 

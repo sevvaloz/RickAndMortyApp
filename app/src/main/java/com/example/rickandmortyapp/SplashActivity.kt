@@ -16,11 +16,11 @@ class SplashActivity : AppCompatActivity() {
         }, 2500)
 
         val prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
-        val isFirstStart = prefs.getBoolean("isFirstStart", true)
+        val isFirst = prefs.getBoolean("isFirst", true)
         val welcomeMessage = findViewById<TextView>(R.id.welcome_message)
 
-        if (isFirstStart) {
-            prefs.edit().putBoolean("isFirstStart", false).apply()
+        if (isFirst) {
+            prefs.edit().putBoolean("isFirst", false).apply()
             welcomeMessage.text = "Welcome!"
         } else {
             welcomeMessage.text = "Hello!"

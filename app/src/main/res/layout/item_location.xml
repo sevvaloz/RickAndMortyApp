@@ -3,23 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-
-
-
     android:id="@+id/locationButton"
     android:layout_width="wrap_content"
     android:layout_height="55dp"
     android:text="earth"
-    android:textSize="18sp"
     android:fontFamily="@font/avenir_font"
+    android:textStyle="bold"
     android:backgroundTint="#000000"
     android:layout_margin="5dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     android:enabled="true">
-
-
-
-
-
 </Button>
